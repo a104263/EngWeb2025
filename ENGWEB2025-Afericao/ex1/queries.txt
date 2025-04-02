@@ -1,0 +1,11 @@
+Exercício 1.2 - Queries
+Alínea 1
+db.livros.find({"title": {"$regex": "Love", "$options": "i"}}).count()
+Alínea 2
+db.livros.find({"author": {"$regex": "Austen", "$options": "i"}}).sort({"title": 1})
+Alínea 3
+db.livros.distinct("author")
+Alínea 4
+db.livros.aggregate([{"$group": {"_id": "$genres", "count": {"$sum" : 1}}}])
+Alínea 5
+db.livros.find({"characters": {"$regex": "Sirius Black", "$options": "i"}}, {title:1, isbn:1, _id:0}).sort({"title": 1})
